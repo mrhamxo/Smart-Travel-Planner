@@ -1,0 +1,19 @@
+project:
+  name: Smart Travel Planner 
+  version: 0.0.1
+  author: "Muhammad Hamza"
+  description: "An agentic AI project using LangGraph"
+
+llm:
+  groq:
+    provider: "groq"              # e.g. openai, groq, mistral
+    model: "mixtral-8x7b-instruct" # model name
+    #temperature: 0.7
+    #max_tokens: 1024
+
+  openai:
+    provider: "openai"              # e.g. openai, groq, mistral
+    model: "o4-mini" # model name
+    #temperature: 0.7
+    #max_tokens: 1024
+
