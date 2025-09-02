@@ -18,7 +18,10 @@ class GraphBuilder():
         self.llm = self.model_loader.load_llm()
         
         self.tools = [
-            
+            WeatherInfoTool(),
+            PlaceSearchTool(),
+            CalculatorTool(),
+            CurrencyConverterTool()
         ]
         
         self.system_prompt = SYSTEM_PROMPT
