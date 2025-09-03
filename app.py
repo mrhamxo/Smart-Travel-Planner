@@ -8,7 +8,7 @@ BASE_URL = "http://localhost:8000"  # Backend endpoint
 # Page Config
 # ---------------------------
 st.set_page_config(
-    page_title="🌍 Smart Travel Planner Agentic AI Application",
+    page_title="Smart Travel Planner Agentic AI Application",
     page_icon="🌍",
     layout="wide",
     initial_sidebar_state="expanded",
