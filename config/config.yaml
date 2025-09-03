@@ -7,7 +7,7 @@ project:
 llm:
   groq:
     provider: "groq"              # e.g. openai, groq, mistral
-    model: "mixtral-8x7b-instruct" # model name
+    model: "openai/gpt-oss-120b" # model name
     #temperature: 0.7
     #max_tokens: 1024
 

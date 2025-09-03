@@ -6,6 +6,7 @@ from langchain_groq import ChatGroq           # LangChain wrapper for Groq LLMs
 from langchain_openai import ChatOpenAI       # LangChain wrapper for OpenAI LLMs
 import os
 
+load_dotenv()  # Load environment variables from .env file
 
 # ------------------------------
 # Config Loader Class
@@ -66,7 +67,7 @@ class ModelLoader(BaseModel):
         if self.model_provider == "groq":
             print("Loading LLM from Groq..............")
             groq_api_key = os.getenv("GROQ_API_KEY")   # load from .env
-            model_name = self.config["llm"]["groq"]["model_name"]  # from config.yaml
+            model_name = self.config["llm"]["groq"]["model"]  # from config.yaml
             llm = ChatGroq(model=model_name, api_key=groq_api_key)
 
         # --------------------------
@@ -75,8 +76,8 @@ class ModelLoader(BaseModel):
         elif self.model_provider == "openai":
             print("Loading LLM from OpenAI..............")
             openai_api_key = os.getenv("OPENAI_API_KEY")   # load from .env
-            model_name = self.config["llm"]["openai"]["model_name"]  # from config.yaml
-            llm = ChatOpenAI(model_name=model_name, api_key=openai_api_key)
+            model_name = self.config["llm"]["openai"]["model"]  # from config.yaml
+            llm = ChatOpenAI(model=model_name, api_key=openai_api_key)
         
         # Return the loaded LLM object
         return llm
