@@ -4,6 +4,7 @@ from starlette.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from agent.agentic_workflow import GraphBuilder   # Your custom graph workflow
+import uvicorn
 
 # --------------------------
 # Initialize FastAPI app
@@ -28,7 +29,14 @@ class QueryRequest(BaseModel):
     Example: {"query": "Plan a trip to Paris in December"}
     """
     query: str = Field(..., example="Plan a trip to Paris in December")
-
+    
+    
+# --------------------------
+# Home Route
+# --------------------------
+@app.get("/")
+async def read_root():
+    return {"message": "Welcome to the Smart Travel Planner Agentic AI Application!"}
 
 # --------------------------
 # API Route
@@ -75,3 +83,6 @@ async def query_travel_agent(request: QueryRequest):
     except Exception as e:
         # Handle unexpected errors gracefully
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
