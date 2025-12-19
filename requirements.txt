@@ -15,3 +15,4 @@ langchain-openai
 langgraph
 
 -e .
+tornado>=6.5.3 # not directly required, pinned by Snyk to avoid a vulnerability
